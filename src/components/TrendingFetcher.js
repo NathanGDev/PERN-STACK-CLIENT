@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import TrendingDisplay from "./TrendingDisplay";
 
 const TrendingFetcher = () => {
-  const [result, setResult] = useState();
+  const [result, setResult] = useState({});
   const [query, setQuery] = useState("");
 
   const fetcher = () => {
@@ -29,6 +30,9 @@ const TrendingFetcher = () => {
     <div>
       <input value={query} onChange={(e) => setQuery(e.target.value)} />
       <button onClick={fetcher}>Click for Movie Pic Search</button>
+      {!result || !result.poster_path ? null : (
+        <TrendingDisplay movie={result} />
+      )}
     </div>
   );
 };
