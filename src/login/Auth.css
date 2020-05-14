@@ -1,7 +1,44 @@
-button {
-  margin: 5px;
+h1 {
+  text-align: center;
 }
 
-h1 {
+body {
+  background-color: grey;
+}
+
+.container {
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
   align-items: center;
+}
+
+.signup-button {
+  height: 40px;
+  width: 100px;
+  margin-left: 40px;
+  background-color: skyblue;
+  border: steelblue 2px solid;
+  border-radius: 5px;
+}
+
+.main-auth {
+  background-color: rgb(93, 93, 92);
+  border-radius: 10px;
+  border: black 2px solid;
+  text-align: center;
+  margin: 2px;
+  padding: 10px;
+}
+.authButton {
+  margin-top: 20px;
+  height: 25px;
+  background-color: skyblue;
+  border: steelblue 2px solid;
+  border-radius: 5px;
+}
+.auth-inputs {
+  display: flex;
 }

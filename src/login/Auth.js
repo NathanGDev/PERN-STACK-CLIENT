@@ -32,7 +32,9 @@ const Auth = (props) => {
           <Login updateToken={props.updateToken} />
         </Col>
       </Row> */}
-      <Button onClick={toggle}>Signup/Login</Button>
+      <Button className="signup-button" onClick={toggle}>
+        Signup/Login
+      </Button>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { ExpansionPanelDetails } from "@material-ui/core";
+import APIURL from "../helpers/environment";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:1337/api/user/login", {
+    fetch(`${APIURL}/api/user/login`, {
       method: "POST",
       body: JSON.stringify({
         user: { username: username, password: password },
@@ -24,26 +25,33 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className="main-auth">
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor="username">Username</Label>
+          <Label htmlFor="username">Username: </Label>
           <Input
+            className="auth-inputs"
             onChange={(e) => setUsername(e.target.value)}
             name="username"
             value={username}
+            required={true}
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">Password: </Label>
           <Input
+            className="auth-inputs"
             onChange={(e) => setPassword(e.target.value)}
             name="password"
+            type="password"
             value={password}
+            required={true}
           />
         </FormGroup>
-        <Button type="submit">Login</Button>
+        <Button className="authButton" type="submit">
+          Login
+        </Button>
       </Form>
     </div>
   );

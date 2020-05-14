@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TrendingDisplay from "./TrendingDisplay";
+import SearchDisplay from "./SearchDisplay";
 
-const TrendingFetcher = () => {
+const SearchFetcher = (props) => {
   const [result, setResult] = useState({});
   const [query, setQuery] = useState("");
 
@@ -20,7 +20,7 @@ const TrendingFetcher = () => {
         } else {
           const movieNum = Math.floor(Math.random() * json.results.length);
           setResult(json.results[movieNum]);
-          console.log(json.results[movieNum]);
+          // console.log(json.results[movieNum]);
         }
       })
       .catch((err) => console.log(err));
@@ -31,9 +31,9 @@ const TrendingFetcher = () => {
       <input value={query} onChange={(e) => setQuery(e.target.value)} />
       <button onClick={fetcher}>Click for Movie Pic Search</button>
       {!result || !result.poster_path ? null : (
-        <TrendingDisplay movie={result} />
+        <SearchDisplay movie={result} token={props.token} />
       )}
     </div>
   );
 };
-export default TrendingFetcher;
+export default SearchFetcher;

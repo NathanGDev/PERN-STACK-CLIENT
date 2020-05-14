@@ -1,0 +1,10 @@
+.MuiPaper-root {
+  background-color: lightgrey !important;
+}
+.MuiBackdrop-root {
+  background-color: transparent !important;
+}
+
+.MuiDrawer-modal {
+  background-color: transparent !important;
+}

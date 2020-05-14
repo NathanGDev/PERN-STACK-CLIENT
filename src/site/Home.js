@@ -1,21 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Header from "./Header";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Card from "../components/Card";
-import TrendingFetcher from "../components/TrendingFetcher";
+import SearchFetcher from "../components/SearchFetcher";
+import Favorites from "./Favorites";
+import Search from "../components/Search";
+import NavBar from "./NavBar";
 
 export default function Home(props) {
   return (
-    <div className="main">
-      <Header clearToken={props.clearToken} />
-      <div className="mainDiv">
-        <h1>Movies</h1>
-        <p>Testing for the movie home page</p>
-        <TrendingFetcher />
-        <div>
-          <h2>Movie Section</h2>
+    <Router>
+      <div className="main">
+        <NavBar clearToken={props.clearToken} />
+        <div className="mainDiv">
+          <div>
+            <Switch>
+              <Route exact path="/favorites">
+                <Favorites token={props.token} />
+              </Route>
+              <Route exact path="/">
+                <Search token={props.token} />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
